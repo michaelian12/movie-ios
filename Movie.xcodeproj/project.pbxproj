@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		CA070F0D2625B79900ACD67B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA070F0C2625B79900ACD67B /* AppDelegate.swift */; };
 		CA070F0F2625B79900ACD67B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA070F0E2625B79900ACD67B /* SceneDelegate.swift */; };
-		CA070F112625B79900ACD67B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA070F102625B79900ACD67B /* ViewController.swift */; };
-		CA070F142625B79900ACD67B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA070F122625B79900ACD67B /* Main.storyboard */; };
+		CA070F112625B79900ACD67B /* GenreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA070F102625B79900ACD67B /* GenreTableViewController.swift */; };
 		CA070F162625B79C00ACD67B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA070F152625B79C00ACD67B /* Assets.xcassets */; };
 		CA070F192625B79C00ACD67B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA070F172625B79C00ACD67B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,8 +18,7 @@
 		CA070F092625B79900ACD67B /* Movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA070F0C2625B79900ACD67B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA070F0E2625B79900ACD67B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CA070F102625B79900ACD67B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CA070F132625B79900ACD67B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CA070F102625B79900ACD67B /* GenreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreTableViewController.swift; sourceTree = "<group>"; };
 		CA070F152625B79C00ACD67B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA070F182625B79C00ACD67B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA070F1A2625B79C00ACD67B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +54,46 @@
 		CA070F0B2625B79900ACD67B /* Movie */ = {
 			isa = PBXGroup;
 			children = (
-				CA070F0C2625B79900ACD67B /* AppDelegate.swift */,
-				CA070F0E2625B79900ACD67B /* SceneDelegate.swift */,
-				CA070F102625B79900ACD67B /* ViewController.swift */,
-				CA070F122625B79900ACD67B /* Main.storyboard */,
+				CA070F302625BDD900ACD67B /* App */,
+				CA070F342625C77500ACD67B /* Modules */,
+				CA070F2D2625BD9600ACD67B /* SupportingFiles */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		CA070F2D2625BD9600ACD67B /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
 				CA070F152625B79C00ACD67B /* Assets.xcassets */,
 				CA070F172625B79C00ACD67B /* LaunchScreen.storyboard */,
 				CA070F1A2625B79C00ACD67B /* Info.plist */,
 			);
-			path = Movie;
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		CA070F302625BDD900ACD67B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CA070F0C2625B79900ACD67B /* AppDelegate.swift */,
+				CA070F0E2625B79900ACD67B /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CA070F342625C77500ACD67B /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CA070F3C2625D17C00ACD67B /* Genre */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CA070F3C2625D17C00ACD67B /* Genre */ = {
+			isa = PBXGroup;
+			children = (
+				CA070F102625B79900ACD67B /* GenreTableViewController.swift */,
+			);
+			path = Genre;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +155,6 @@
 			files = (
 				CA070F192625B79C00ACD67B /* LaunchScreen.storyboard in Resources */,
 				CA070F162625B79C00ACD67B /* Assets.xcassets in Resources */,
-				CA070F142625B79900ACD67B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA070F112625B79900ACD67B /* ViewController.swift in Sources */,
+				CA070F112625B79900ACD67B /* GenreTableViewController.swift in Sources */,
 				CA070F0D2625B79900ACD67B /* AppDelegate.swift in Sources */,
 				CA070F0F2625B79900ACD67B /* SceneDelegate.swift in Sources */,
 			);
@@ -146,14 +174,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CA070F122625B79900ACD67B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CA070F132625B79900ACD67B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CA070F172625B79C00ACD67B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -288,7 +308,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 44FS77565F;
-				INFOPLIST_FILE = Movie/Info.plist;
+				INFOPLIST_FILE = Movie/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +327,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 44FS77565F;
-				INFOPLIST_FILE = Movie/Info.plist;
+				INFOPLIST_FILE = Movie/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
