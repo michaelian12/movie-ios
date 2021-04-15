@@ -12,6 +12,18 @@ final class MovieTableViewController: UITableViewController {
     // MARK: - Properties
 
     private let kMovieCell = "movieCell"
+    private var presenter: MoviePresenterProtocol
+
+    // MARK: - Initialisation
+
+    init(presenter: MoviePresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Lifecycle
 
@@ -19,6 +31,7 @@ final class MovieTableViewController: UITableViewController {
         super.viewDidLoad()
         setupNavigation()
         setupTableView()
+        presenter.getMovie(withGenreId: 1)
     }
 
     // MARK: - Methods
@@ -41,12 +54,12 @@ final class MovieTableViewController: UITableViewController {
 extension MovieTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return presenter.movies.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kMovieCell, for: indexPath)
-        cell.textLabel?.text = "Movie name"
+        cell.textLabel?.text = presenter.movies[indexPath.row].title
         return cell
     }
 
