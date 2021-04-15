@@ -31,13 +31,13 @@ final class MovieTableViewController: UITableViewController {
         super.viewDidLoad()
         setupNavigation()
         setupTableView()
-        presenter.getMovie(withGenreId: 1)
+        presenter.getMovies(withGenreId: presenter.genre.id)
     }
 
     // MARK: - Methods
 
     private func setupNavigation() {
-        navigationItem.title = "Movies"
+        navigationItem.title = presenter.genre.name
     }
 
     private func setupTableView() {

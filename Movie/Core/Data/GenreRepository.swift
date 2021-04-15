@@ -15,11 +15,11 @@ final class GenreRepository {
 
     // MARK: - Properties
 
-    private let remote: RemoteDataSourceProtocol
+    private let remote: GenreRemoteDataSourceProtocol
 
     // MARK: - Initialisation
 
-    init(remoteDataSource: RemoteDataSourceProtocol) {
+    init(remoteDataSource: GenreRemoteDataSourceProtocol) {
         self.remote = remoteDataSource
     }
 
@@ -30,7 +30,7 @@ final class GenreRepository {
 extension GenreRepository: GenreRepositoryProtocol {
 
     func getGenres(result: @escaping (Result<[GenreModel], Error>) -> Void) {
-        return remote.getGenres { remoteResult in
+        remote.getGenres { remoteResult in
             switch remoteResult {
             case .success(let genreResponses):
                 let _genres = GenreMapper.mapGenreResponsesToDomains(input: genreResponses)

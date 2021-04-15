@@ -10,6 +10,7 @@ import Foundation
 enum EnumResponse: Decodable {
 
     case genresResponse(GenresResponse)
+    case movieListResponse(ListResponse<MovieResponse>)
     case errorResponse(ErrorResponse)
     case unknown
 
@@ -23,6 +24,11 @@ enum EnumResponse: Decodable {
             return
         }
 
+        if let _movieListResponseValue = try? _container.decode(ListResponse<MovieResponse>.self) {
+            self = .movieListResponse(_movieListResponseValue)
+            return
+        }
+
         if let _errorResponseValue = try? _container.decode(ErrorResponse.self) {
             self = .errorResponse(_errorResponseValue)
             return
@@ -31,10 +37,12 @@ enum EnumResponse: Decodable {
         self = .unknown
     }
 
-    func get() -> Any {
+    func get() -> Any? {
         switch self {
         case .genresResponse(let genresResponse):
             return genresResponse
+        case .movieListResponse(let movieListResponse):
+            return movieListResponse.results
         case .errorResponse(let errorResponse):
             return errorResponse
         case .unknown:

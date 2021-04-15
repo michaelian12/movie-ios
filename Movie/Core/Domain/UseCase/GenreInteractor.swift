@@ -30,7 +30,7 @@ final class GenreInteractor {
 extension GenreInteractor: GenreUseCase {
     
     func getGenres(completion: @escaping (Result<[GenreModel], Error>) -> Void) {
-        return repository.getGenres { repositoryResult in
+        repository.getGenres { repositoryResult in
             completion(repositoryResult)
         }
     }

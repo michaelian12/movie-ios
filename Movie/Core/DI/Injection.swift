@@ -12,13 +12,25 @@ final class Injection {
     // MARK: - Genre
 
     private func provideGenreRepository() -> GenreRepositoryProtocol {
-        let remote: RemoteDataSource = RemoteDataSource()
+        let remote = GenreRemoteDataSource()
         return GenreRepository(remoteDataSource: remote)
     }
 
     func provideGenre() -> GenreUseCase {
         let repository = provideGenreRepository()
         return GenreInteractor(repository: repository)
+    }
+
+    // MARK: - Movie
+
+    private func provideMovieRepository() -> MovieRepositoryProtocol {
+        let remote = MovieRemoteDataSource()
+        return MovieRepository(remoteDataSource: remote)
+    }
+
+    func provideMovie() -> MovieUseCase {
+        let repository = provideMovieRepository()
+        return MovieInteractor(repository: repository)
     }
 
 }
