@@ -7,17 +7,16 @@
 
 import UIKit
 
-
 final class GenreTableViewController: UITableViewController {
 
     // MARK: - Properties
 
     private let kGenreCell = "genreCell"
-    private let presenter: GenrePresenter
+    private var presenter: GenrePresenterProtocol
 
     // MARK: - Initialisation
 
-    init(presenter: GenrePresenter) {
+    init(presenter: GenrePresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
