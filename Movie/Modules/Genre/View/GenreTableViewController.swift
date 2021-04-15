@@ -46,7 +46,6 @@ final class GenreTableViewController: UITableViewController {
     private func setupTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: kGenreCell)
         tableView.backgroundColor = .systemBackground
-        tableView.allowsSelection = false
         tableView.separatorStyle = .singleLine
     }
 
@@ -66,4 +65,14 @@ extension GenreTableViewController {
         return cell
     }
 
+}
+
+// MARK: - Delegate
+
+extension GenreTableViewController {
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.pushViewController(MovieTableViewController(), animated: true)
+    }
+    
 }
