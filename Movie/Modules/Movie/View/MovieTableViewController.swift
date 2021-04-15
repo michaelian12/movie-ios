@@ -77,13 +77,10 @@ extension MovieTableViewController {
 extension MovieTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let genre = presenter.genres[indexPath.row]
-//        let movieUseCase = Injection.init().provideMovie()
-//        let moviePresenter = MoviePresenter(genre: genre, useCase: movieUseCase)
-//        let movieTableViewController = MovieTableViewController(presenter: moviePresenter)
-//        moviePresenter.setView(movieTableViewController)
-        let movie = presenter.movies[indexPath.row]
-        navigationController?.pushViewController(MovieViewController(movie: movie), animated: true)
+        let _movie = presenter.movies[indexPath.row]
+        let _movieDetailPresenter = MovieDetailPresenter(movie: _movie)
+        let _movieDetailViewController = MovieDetailViewController(presenter: _movieDetailPresenter)
+        navigationController?.pushViewController(_movieDetailViewController, animated: true)
     }
 
 }

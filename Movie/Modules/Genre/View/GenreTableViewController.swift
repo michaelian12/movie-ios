@@ -76,12 +76,12 @@ extension GenreTableViewController {
 extension GenreTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let genre = presenter.genres[indexPath.row]
-        let movieUseCase = Injection.init().provideMovie()
-        let moviePresenter = MoviePresenter(genre: genre, useCase: movieUseCase)
-        let movieTableViewController = MovieTableViewController(presenter: moviePresenter)
-        moviePresenter.setView(movieTableViewController)
-        navigationController?.pushViewController(movieTableViewController, animated: true)
+        let _genre = presenter.genres[indexPath.row]
+        let _movieUseCase = Injection.init().provideMovie()
+        let _moviePresenter = MoviePresenter(genre: _genre, useCase: _movieUseCase)
+        let _movieTableViewController = MovieTableViewController(presenter: _moviePresenter)
+        _moviePresenter.setView(_movieTableViewController)
+        navigationController?.pushViewController(_movieTableViewController, animated: true)
     }
     
 }

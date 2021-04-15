@@ -1,5 +1,5 @@
 //
-//  MovieViewController.swift
+//  MovieDetailViewController.swift
 //  Movie
 //
 //  Created by Michael Agustian on 15/04/21.
@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-final class MovieViewController: UIViewController {
+final class MovieDetailViewController: UIViewController {
 
     // MARK: - UI Properties
 
@@ -19,14 +19,6 @@ final class MovieViewController: UIViewController {
         return imageView
     }()
 
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
     private lazy var overviewLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -35,14 +27,21 @@ final class MovieViewController: UIViewController {
         return label
     }()
 
+    private lazy var seeReviewsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("See Reviews", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     // MARK: - Properties
 
-    private let movie: MovieModel
+    private let presenter: MovieDetailPresenterProtocol
 
     // MARK: - Initialisation
 
-    init(movie: MovieModel) {
-        self.movie = movie
+    init(presenter: MovieDetailPresenterProtocol) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -66,7 +65,7 @@ final class MovieViewController: UIViewController {
     // MARK: - Methods
 
     private func setupNavigation() {
-        navigationItem.title = movie.title
+        navigationItem.title = presenter.movie.title
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
@@ -76,6 +75,7 @@ final class MovieViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(posterImageView)
         view.addSubview(overviewLabel)
+        view.addSubview(seeReviewsButton)
 
         NSLayoutConstraint.activate([
             posterImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
@@ -85,13 +85,17 @@ final class MovieViewController: UIViewController {
             overviewLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             overviewLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             overviewLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 16),
+            seeReviewsButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            seeReviewsButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            seeReviewsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }
 
     private func setMovieDetail() {
-        let posterURL = URL(string: "\(API.imageUrl)/w780\(movie.backdropPath)")
-        posterImageView.sd_setImage(with: posterURL)
-        overviewLabel.text = movie.overview
+        let _movie = presenter.movie
+        let _posterURL = URL(string: "\(API.imageUrl)/w780\(_movie.backdropPath)")
+        posterImageView.sd_setImage(with: _posterURL)
+        overviewLabel.text = _movie.overview
     }
 
 }
