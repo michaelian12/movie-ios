@@ -38,6 +38,9 @@
 		CAED0889262842DB00D7583A /* ListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED0888262842DB00D7583A /* ListResponse.swift */; };
 		CAED088B2628471500D7583A /* MovieInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED088A2628471500D7583A /* MovieInteractor.swift */; };
 		CAED088D26284BB200D7583A /* MovieMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED088C26284BB200D7583A /* MovieMapper.swift */; };
+		CAED088F2628582900D7583A /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED088E2628582900D7583A /* MovieViewController.swift */; };
+		CAED0893262868CC00D7583A /* SDWebImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAED0892262868CC00D7583A /* SDWebImage.xcframework */; };
+		CAED0894262868CC00D7583A /* SDWebImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAED0892262868CC00D7583A /* SDWebImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +51,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				CAED08672627E6F200D7583A /* Alamofire.xcframework in Embed Frameworks */,
+				CAED0894262868CC00D7583A /* SDWebImage.xcframework in Embed Frameworks */,
 				CAED086B2627E6F700D7583A /* RxSwift.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -87,6 +91,8 @@
 		CAED0888262842DB00D7583A /* ListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResponse.swift; sourceTree = "<group>"; };
 		CAED088A2628471500D7583A /* MovieInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInteractor.swift; sourceTree = "<group>"; };
 		CAED088C26284BB200D7583A /* MovieMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMapper.swift; sourceTree = "<group>"; };
+		CAED088E2628582900D7583A /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		CAED0892262868CC00D7583A /* SDWebImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDWebImage.xcframework; path = Carthage/Build/SDWebImage.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAED08662627E6F200D7583A /* Alamofire.xcframework in Frameworks */,
+				CAED0893262868CC00D7583A /* SDWebImage.xcframework in Frameworks */,
 				CAED086A2627E6F700D7583A /* RxSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +299,7 @@
 		CAED08642627E6F200D7583A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CAED0892262868CC00D7583A /* SDWebImage.xcframework */,
 				CAED08692627E6F700D7583A /* RxSwift.xcframework */,
 				CAED08652627E6F200D7583A /* Alamofire.xcframework */,
 			);
@@ -319,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				CAED087626282C8F00D7583A /* MovieTableViewController.swift */,
+				CAED088E2628582900D7583A /* MovieViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -418,6 +427,7 @@
 				CA33E8522626C4CC004D32CE /* GenreRepository.swift in Sources */,
 				CAED088526283D4D00D7583A /* MovieRemoteDataSource.swift in Sources */,
 				CA33E84F2626C06F004D32CE /* RemoteDataSource.swift in Sources */,
+				CAED088F2628582900D7583A /* MovieViewController.swift in Sources */,
 				CAED088126283B6B00D7583A /* MovieRepository.swift in Sources */,
 				CA33E8092625D961004D32CE /* GenreModel.swift in Sources */,
 				CA33E8482626BFE3004D32CE /* APICall.swift in Sources */,

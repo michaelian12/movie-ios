@@ -14,7 +14,7 @@ final class MovieMapper {
             return MovieModel(id: result.id ?? 0,
                               title: result.title ?? "Unknown title",
                               overview: result.overview ?? "Unknown overview",
-                              posterPath: result.posterPath ?? "")
+                              backdropPath: result.backdropPath ?? "")
         }
     }
 

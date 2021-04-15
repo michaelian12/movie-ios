@@ -9,6 +9,7 @@ import Foundation
 
 struct API {
     static let baseUrl = "https://api.themoviedb.org/3/"
+    static let imageUrl = "https://image.tmdb.org/t/p"
     static let key = "b1bd0b60042274302e67670f173ef398"
 }
 
