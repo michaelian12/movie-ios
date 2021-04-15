@@ -116,7 +116,9 @@ final class MovieDetailViewController: UIViewController {
     // MARK: - Action Methods
 
     @objc private func pushToReviewPage() {
-        navigationController?.pushViewController(ReviewTableViewController(), animated: true)
+        let _reviewPresenter = ReviewPresenter()
+        let _reviewTableViewController = ReviewTableViewController(presenter: _reviewPresenter)
+        navigationController?.pushViewController(_reviewTableViewController, animated: true)
     }
 
 }

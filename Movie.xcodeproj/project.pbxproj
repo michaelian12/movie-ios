@@ -46,6 +46,7 @@
 		CAED089F2628804200D7583A /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED089E2628804200D7583A /* ReviewTableViewCell.swift */; };
 		CAED08A1262880B000D7583A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08A0262880B000D7583A /* UIView+Extension.swift */; };
 		CAED08A32628814B00D7583A /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08A22628814B00D7583A /* ReviewModel.swift */; };
+		CAED08A6262885D000D7583A /* ReviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08A5262885D000D7583A /* ReviewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,6 +104,7 @@
 		CAED089E2628804200D7583A /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		CAED08A0262880B000D7583A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		CAED08A22628814B00D7583A /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
+		CAED08A5262885D000D7583A /* ReviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,6 +383,7 @@
 		CAED089A26287E5C00D7583A /* Review */ = {
 			isa = PBXGroup;
 			children = (
+				CAED08A4262885C500D7583A /* Presenter */,
 				CAED089B26287E6800D7583A /* View */,
 			);
 			path = Review;
@@ -393,6 +396,14 @@
 				CAED089E2628804200D7583A /* ReviewTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CAED08A4262885C500D7583A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CAED08A5262885D000D7583A /* ReviewPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,6 +506,7 @@
 				CA33E85C2626CDF2004D32CE /* Injection.swift in Sources */,
 				CA070F0D2625B79900ACD67B /* AppDelegate.swift in Sources */,
 				CA070F0F2625B79900ACD67B /* SceneDelegate.swift in Sources */,
+				CAED08A6262885D000D7583A /* ReviewPresenter.swift in Sources */,
 				CAED088B2628471500D7583A /* MovieInteractor.swift in Sources */,
 				CA33E8572626C5DA004D32CE /* GenreInteractor.swift in Sources */,
 				CA33E80F2625D9BB004D32CE /* GenrePresenter.swift in Sources */,

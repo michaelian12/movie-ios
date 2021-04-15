@@ -12,12 +12,25 @@ final class ReviewTableViewController: UITableViewController {
     // MARK: - Properties
 
     private let kReviewCell = "reviewCell"
+    private var presenter: ReviewPresenterProtocol
+
+    // MARK: - Initialisation
+
+    init(presenter: ReviewPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        presenter.getReviews()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +61,7 @@ final class ReviewTableViewController: UITableViewController {
 extension ReviewTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return presenter.reviews.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +69,7 @@ extension ReviewTableViewController {
             return UITableViewCell()
         }
 
-        let _review = ReviewModel(id: "1", authorName: "Bambang", content: "Bagus!")
+        let _review = presenter.reviews[indexPath.row]
         _cell.setReview(_review)
         return _cell
     }
