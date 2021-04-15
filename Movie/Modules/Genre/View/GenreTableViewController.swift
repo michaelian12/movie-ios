@@ -64,9 +64,9 @@ extension GenreTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: kGenreCell, for: indexPath)
-        cell.textLabel?.text = presenter.genres[indexPath.row].name
-        return cell
+        let _cell = tableView.dequeueReusableCell(withIdentifier: kGenreCell, for: indexPath)
+        _cell.textLabel?.text = presenter.genres[indexPath.row].name
+        return _cell
     }
 
 }

@@ -19,6 +19,15 @@ final class MovieDetailViewController: UIViewController {
         return imageView
     }()
 
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
     private lazy var overviewLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -31,6 +40,7 @@ final class MovieDetailViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("See Reviews", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(self.pushToReviewPage), for: .touchUpInside)
         return button
     }()
 
@@ -65,7 +75,7 @@ final class MovieDetailViewController: UIViewController {
     // MARK: - Methods
 
     private func setupNavigation() {
-        navigationItem.title = presenter.movie.title
+        navigationItem.title = "Movie Detail"
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
@@ -74,6 +84,7 @@ final class MovieDetailViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = .systemBackground
         view.addSubview(posterImageView)
+        view.addSubview(titleLabel)
         view.addSubview(overviewLabel)
         view.addSubview(seeReviewsButton)
 
@@ -82,9 +93,12 @@ final class MovieDetailViewController: UIViewController {
             posterImageView.heightAnchor.constraint(equalTo: posterImageView.widthAnchor, multiplier: 9/16),
             posterImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             posterImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 16),
             overviewLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             overviewLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            overviewLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 16),
+            overviewLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             seeReviewsButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             seeReviewsButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             seeReviewsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
@@ -95,7 +109,14 @@ final class MovieDetailViewController: UIViewController {
         let _movie = presenter.movie
         let _posterURL = URL(string: "\(API.imageUrl)/w780\(_movie.backdropPath)")
         posterImageView.sd_setImage(with: _posterURL)
+        titleLabel.text = _movie.title
         overviewLabel.text = _movie.overview
+    }
+
+    // MARK: - Action Methods
+
+    @objc private func pushToReviewPage() {
+        navigationController?.pushViewController(ReviewTableViewController(), animated: true)
     }
 
 }

@@ -65,9 +65,9 @@ extension MovieTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: kMovieCell, for: indexPath)
-        cell.textLabel?.text = presenter.movies[indexPath.row].title
-        return cell
+        let _cell = tableView.dequeueReusableCell(withIdentifier: kMovieCell, for: indexPath)
+        _cell.textLabel?.text = presenter.movies[indexPath.row].title
+        return _cell
     }
 
 }
