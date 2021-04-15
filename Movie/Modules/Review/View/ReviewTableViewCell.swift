@@ -15,7 +15,7 @@ final class ReviewTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Author"
         label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

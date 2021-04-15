@@ -47,6 +47,11 @@
 		CAED08A1262880B000D7583A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08A0262880B000D7583A /* UIView+Extension.swift */; };
 		CAED08A32628814B00D7583A /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08A22628814B00D7583A /* ReviewModel.swift */; };
 		CAED08A6262885D000D7583A /* ReviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08A5262885D000D7583A /* ReviewPresenter.swift */; };
+		CAED08A8262887AD00D7583A /* ReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08A7262887AD00D7583A /* ReviewResponse.swift */; };
+		CAED08AA2628884E00D7583A /* ReviewRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08A92628884E00D7583A /* ReviewRemoteDataSource.swift */; };
+		CAED08AC262889C700D7583A /* ReviewMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08AB262889C700D7583A /* ReviewMapper.swift */; };
+		CAED08AE26288A5A00D7583A /* ReviewRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08AD26288A5A00D7583A /* ReviewRepository.swift */; };
+		CAED08B026288B4100D7583A /* ReviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08AF26288B4100D7583A /* ReviewInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,6 +110,11 @@
 		CAED08A0262880B000D7583A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		CAED08A22628814B00D7583A /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 		CAED08A5262885D000D7583A /* ReviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPresenter.swift; sourceTree = "<group>"; };
+		CAED08A7262887AD00D7583A /* ReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewResponse.swift; sourceTree = "<group>"; };
+		CAED08A92628884E00D7583A /* ReviewRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRemoteDataSource.swift; sourceTree = "<group>"; };
+		CAED08AB262889C700D7583A /* ReviewMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewMapper.swift; sourceTree = "<group>"; };
+		CAED08AD26288A5A00D7583A /* ReviewRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRepository.swift; sourceTree = "<group>"; };
+		CAED08AF26288B4100D7583A /* ReviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +212,7 @@
 			children = (
 				CA312C2326272F9300688D44 /* GenreMapper.swift */,
 				CAED088C26284BB200D7583A /* MovieMapper.swift */,
+				CAED08AB262889C700D7583A /* ReviewMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -268,6 +279,7 @@
 				CA33E84D2626C05C004D32CE /* Remote */,
 				CA33E8512626C4CC004D32CE /* GenreRepository.swift */,
 				CAED088026283B6A00D7583A /* MovieRepository.swift */,
+				CAED08AD26288A5A00D7583A /* ReviewRepository.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -279,6 +291,7 @@
 				CA33E84E2626C06F004D32CE /* RemoteDataSource.swift */,
 				CAED088226283C8400D7583A /* GenreRemoteDataSource.swift */,
 				CAED088426283D4D00D7583A /* MovieRemoteDataSource.swift */,
+				CAED08A92628884E00D7583A /* ReviewRemoteDataSource.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -288,6 +301,7 @@
 			children = (
 				CA33E8562626C5DA004D32CE /* GenreInteractor.swift */,
 				CAED088A2628471500D7583A /* MovieInteractor.swift */,
+				CAED08AF26288B4100D7583A /* ReviewInteractor.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -308,6 +322,7 @@
 				CA33E85F2626DA9B004D32CE /* GenresResponse.swift */,
 				CAED0888262842DB00D7583A /* ListResponse.swift */,
 				CAED088626283DBA00D7583A /* MovieResponse.swift */,
+				CAED08A7262887AD00D7583A /* ReviewResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -483,6 +498,7 @@
 				CAED087F262837BD00D7583A /* MovieModel.swift in Sources */,
 				CAED088726283DBA00D7583A /* MovieResponse.swift in Sources */,
 				CAED087726282C8F00D7583A /* MovieTableViewController.swift in Sources */,
+				CAED08AE26288A5A00D7583A /* ReviewRepository.swift in Sources */,
 				CAED088D26284BB200D7583A /* MovieMapper.swift in Sources */,
 				CAED088326283C8400D7583A /* GenreRemoteDataSource.swift in Sources */,
 				CAED08722627FAED00D7583A /* ErrorResponse.swift in Sources */,
@@ -491,6 +507,7 @@
 				CAED08702627FA7400D7583A /* EnumResponse.swift in Sources */,
 				CA070F112625B79900ACD67B /* GenreTableViewController.swift in Sources */,
 				CAED0889262842DB00D7583A /* ListResponse.swift in Sources */,
+				CAED08AC262889C700D7583A /* ReviewMapper.swift in Sources */,
 				CA33E8522626C4CC004D32CE /* GenreRepository.swift in Sources */,
 				CAED089D26287E7D00D7583A /* ReviewTableViewController.swift in Sources */,
 				CAED088526283D4D00D7583A /* MovieRemoteDataSource.swift in Sources */,
@@ -498,12 +515,15 @@
 				CAED089F2628804200D7583A /* ReviewTableViewCell.swift in Sources */,
 				CAED088F2628582900D7583A /* MovieDetailViewController.swift in Sources */,
 				CAED088126283B6B00D7583A /* MovieRepository.swift in Sources */,
+				CAED08AA2628884E00D7583A /* ReviewRemoteDataSource.swift in Sources */,
 				CAED0898262879BA00D7583A /* MovieDetailPresenter.swift in Sources */,
 				CAED08A1262880B000D7583A /* UIView+Extension.swift in Sources */,
 				CA33E8092625D961004D32CE /* GenreModel.swift in Sources */,
 				CA33E8482626BFE3004D32CE /* APICall.swift in Sources */,
 				CA312C1E26272A2600688D44 /* CustomError.swift in Sources */,
 				CA33E85C2626CDF2004D32CE /* Injection.swift in Sources */,
+				CAED08B026288B4100D7583A /* ReviewInteractor.swift in Sources */,
+				CAED08A8262887AD00D7583A /* ReviewResponse.swift in Sources */,
 				CA070F0D2625B79900ACD67B /* AppDelegate.swift in Sources */,
 				CA070F0F2625B79900ACD67B /* SceneDelegate.swift in Sources */,
 				CAED08A6262885D000D7583A /* ReviewPresenter.swift in Sources */,

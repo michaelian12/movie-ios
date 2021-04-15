@@ -11,6 +11,7 @@ enum EnumResponse: Decodable {
 
     case genresResponse(GenresResponse)
     case movieListResponse(ListResponse<MovieResponse>)
+    case reviewListResponse(ListResponse<ReviewResponse>)
     case errorResponse(ErrorResponse)
     case unknown
 
@@ -29,6 +30,11 @@ enum EnumResponse: Decodable {
             return
         }
 
+        if let _reviewResponseValue = try? _container.decode(ListResponse<ReviewResponse>.self) {
+            self = .reviewListResponse(_reviewResponseValue)
+            return
+        }
+
         if let _errorResponseValue = try? _container.decode(ErrorResponse.self) {
             self = .errorResponse(_errorResponseValue)
             return
@@ -43,6 +49,8 @@ enum EnumResponse: Decodable {
             return genresResponse
         case .movieListResponse(let movieListResponse):
             return movieListResponse.results
+        case .reviewListResponse(let reviewListResponse):
+            return reviewListResponse.results
         case .errorResponse(let errorResponse):
             return errorResponse
         case .unknown:

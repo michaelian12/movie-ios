@@ -30,7 +30,7 @@ final class ReviewTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        presenter.getReviews()
+        presenter.getReviews(withMovieId: presenter.movieId)
     }
 
     override func viewWillAppear(_ animated: Bool) {

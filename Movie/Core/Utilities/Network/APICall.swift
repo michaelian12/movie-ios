@@ -22,11 +22,13 @@ enum Endpoints {
     enum Gets: Endpoint {
         case genres
         case moviesWithGenreId
+        case review(movieId: Int)
 
         var url: String {
             switch self {
             case .genres: return "\(API.baseUrl)genre/movie/list"
             case .moviesWithGenreId: return "\(API.baseUrl)discover/movie"
+            case .review(let movieId): return "\(API.baseUrl)movie/\(movieId)/reviews"
             }
         }
     }

@@ -33,4 +33,16 @@ final class Injection {
         return MovieInteractor(repository: repository)
     }
 
+    // MARK: - Review
+
+    private func provideReviewRepository() -> ReviewRepositoryProtocol {
+        let remote = ReviewRemoteDataSource()
+        return ReviewRepository(remoteDataSource: remote)
+    }
+
+    func provideReview() -> ReviewUseCase {
+        let repository = provideReviewRepository()
+        return ReviewInteractor(repository: repository)
+    }
+
 }

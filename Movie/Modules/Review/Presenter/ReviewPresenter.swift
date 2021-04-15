@@ -8,23 +8,48 @@
 import Foundation
 
 protocol ReviewPresenterProtocol: AnyObject {
+    var movieId: Int { get }
     var reviews: [ReviewModel] { get }
-    func getReviews()
+    func getReviews(withMovieId movieId: Int)
 }
 
 final class ReviewPresenter {
 
     // MARK: - Properties
 
+    private let reviewUseCase: ReviewUseCase
+    private weak var view: ReviewTableViewController?
+    let movieId: Int
     var reviews: [ReviewModel] = []
+    var errorMessage: String = ""
+
+    // MARK: - Initialisation
+
+    init(movieId: Int, useCase: ReviewUseCase) {
+        self.movieId = movieId
+        self.reviewUseCase = useCase
+    }
+
+    // MARK: - Methods
+
+    func setView(_ view: ReviewTableViewController) {
+        self.view = view
+    }
 
 }
 
 extension ReviewPresenter: ReviewPresenterProtocol {
 
-    func getReviews() {
-        let _review = ReviewModel(id: "1", authorName: "Bambang", content: "Bagus!")
-        reviews.append(_review)
+    func getReviews(withMovieId movieId: Int) {
+        reviewUseCase.getReviews(withMovieId: movieId) { [weak self] result in
+            switch result {
+            case .success(let reviews):
+                self?.reviews = reviews
+                self?.view?.tableView.reloadData()
+            case .failure(let error):
+                self?.errorMessage = error.localizedDescription
+            }
+        }
     }
 
 }
