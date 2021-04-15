@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ReviewRepositoryProtocol: AnyObject {
-    func getReviews(withMovieId movieId: Int, result: @escaping (Result<[ReviewModel], Error>) -> Void)
+    func getReviews(withMovieId movieId: Int, page: Int, result: @escaping (Result<[ReviewModel], Error>) -> Void)
 }
 
 final class ReviewRepository {
@@ -29,8 +29,8 @@ final class ReviewRepository {
 
 extension ReviewRepository: ReviewRepositoryProtocol {
 
-    func getReviews(withMovieId movieId: Int, result: @escaping (Result<[ReviewModel], Error>) -> Void) {
-        remote.getReviews(withMovieId: movieId) { remoteResult in
+    func getReviews(withMovieId movieId: Int, page: Int, result: @escaping (Result<[ReviewModel], Error>) -> Void) {
+        remote.getReviews(withMovieId: movieId, page: page) { remoteResult in
             switch remoteResult {
             case .success(let reviewResponses):
                 let _reviews = ReviewMapper.mapReviewResponsesToDomains(input: reviewResponses)

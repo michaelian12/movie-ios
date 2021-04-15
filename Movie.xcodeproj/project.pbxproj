@@ -24,8 +24,6 @@
 		CA33E8602626DA9B004D32CE /* GenresResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA33E85F2626DA9B004D32CE /* GenresResponse.swift */; };
 		CAED08662627E6F200D7583A /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAED08652627E6F200D7583A /* Alamofire.xcframework */; };
 		CAED08672627E6F200D7583A /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAED08652627E6F200D7583A /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CAED086A2627E6F700D7583A /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAED08692627E6F700D7583A /* RxSwift.xcframework */; };
-		CAED086B2627E6F700D7583A /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAED08692627E6F700D7583A /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CAED08702627FA7400D7583A /* EnumResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED086F2627FA7400D7583A /* EnumResponse.swift */; };
 		CAED08722627FAED00D7583A /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08712627FAED00D7583A /* ErrorResponse.swift */; };
 		CAED087726282C8F00D7583A /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED087626282C8F00D7583A /* MovieTableViewController.swift */; };
@@ -52,6 +50,8 @@
 		CAED08AC262889C700D7583A /* ReviewMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08AB262889C700D7583A /* ReviewMapper.swift */; };
 		CAED08AE26288A5A00D7583A /* ReviewRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08AD26288A5A00D7583A /* ReviewRepository.swift */; };
 		CAED08B026288B4100D7583A /* ReviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08AF26288B4100D7583A /* ReviewInteractor.swift */; };
+		CAED08B226289AC000D7583A /* MJRefresh.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAED08B126289AC000D7583A /* MJRefresh.xcframework */; };
+		CAED08B326289AC000D7583A /* MJRefresh.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAED08B126289AC000D7583A /* MJRefresh.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,7 +63,7 @@
 			files = (
 				CAED08672627E6F200D7583A /* Alamofire.xcframework in Embed Frameworks */,
 				CAED0894262868CC00D7583A /* SDWebImage.xcframework in Embed Frameworks */,
-				CAED086B2627E6F700D7583A /* RxSwift.xcframework in Embed Frameworks */,
+				CAED08B326289AC000D7583A /* MJRefresh.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +115,7 @@
 		CAED08AB262889C700D7583A /* ReviewMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewMapper.swift; sourceTree = "<group>"; };
 		CAED08AD26288A5A00D7583A /* ReviewRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRepository.swift; sourceTree = "<group>"; };
 		CAED08AF26288B4100D7583A /* ReviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewInteractor.swift; sourceTree = "<group>"; };
+		CAED08B126289AC000D7583A /* MJRefresh.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MJRefresh.xcframework; path = Carthage/Build/MJRefresh.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +125,7 @@
 			files = (
 				CAED08662627E6F200D7583A /* Alamofire.xcframework in Frameworks */,
 				CAED0893262868CC00D7583A /* SDWebImage.xcframework in Frameworks */,
-				CAED086A2627E6F700D7583A /* RxSwift.xcframework in Frameworks */,
+				CAED08B226289AC000D7583A /* MJRefresh.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +331,7 @@
 		CAED08642627E6F200D7583A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CAED08B126289AC000D7583A /* MJRefresh.xcframework */,
 				CAED0892262868CC00D7583A /* SDWebImage.xcframework */,
 				CAED08692627E6F700D7583A /* RxSwift.xcframework */,
 				CAED08652627E6F200D7583A /* Alamofire.xcframework */,

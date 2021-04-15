@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ReviewUseCase: AnyObject {
-    func getReviews(withMovieId movieId: Int, completion: @escaping (Result<[ReviewModel], Error>) -> Void)
+    func getReviews(withMovieId movieId: Int, page: Int, completion: @escaping (Result<[ReviewModel], Error>) -> Void)
 }
 
 final class ReviewInteractor {
@@ -29,8 +29,8 @@ final class ReviewInteractor {
 
 extension ReviewInteractor: ReviewUseCase {
 
-    func getReviews(withMovieId movieId: Int, completion: @escaping (Result<[ReviewModel], Error>) -> Void) {
-        repository.getReviews(withMovieId: movieId) { repositoryResult in
+    func getReviews(withMovieId movieId: Int, page: Int, completion: @escaping (Result<[ReviewModel], Error>) -> Void) {
+        repository.getReviews(withMovieId: movieId, page: page) { repositoryResult in
             completion(repositoryResult)
         }
     }

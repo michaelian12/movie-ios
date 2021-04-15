@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MovieRepositoryProtocol: AnyObject {
-    func getMovies(withGenreId genreId: Int, result: @escaping (Result<[MovieModel], Error>) -> Void)
+    func getMovies(withGenreId genreId: Int, page: Int, result: @escaping (Result<[MovieModel], Error>) -> Void)
 }
 
 final class MovieRepository {
@@ -29,8 +29,8 @@ final class MovieRepository {
 
 extension MovieRepository: MovieRepositoryProtocol {
 
-    func getMovies(withGenreId genreId: Int, result: @escaping (Result<[MovieModel], Error>) -> Void) {
-        remote.getMovies(withGenreId: genreId) { remoteResult in
+    func getMovies(withGenreId genreId: Int, page: Int, result: @escaping (Result<[MovieModel], Error>) -> Void) {
+        remote.getMovies(withGenreId: genreId, page: page) { remoteResult in
             switch remoteResult {
             case .success(let movieResponses):
                 let _movies = MovieMapper.mapMovieResponsesToDomains(input: movieResponses)

@@ -10,6 +10,7 @@ import Foundation
 protocol ReviewPresenterProtocol: AnyObject {
     var movieId: Int { get }
     var reviews: [ReviewModel] { get }
+    var page: Int { get set }
     func getReviews(withMovieId movieId: Int)
 }
 
@@ -21,6 +22,7 @@ final class ReviewPresenter {
     private weak var view: ReviewTableViewController?
     let movieId: Int
     var reviews: [ReviewModel] = []
+    var page: Int = 1
     var errorMessage: String = ""
 
     // MARK: - Initialisation
@@ -41,13 +43,19 @@ final class ReviewPresenter {
 extension ReviewPresenter: ReviewPresenterProtocol {
 
     func getReviews(withMovieId movieId: Int) {
-        reviewUseCase.getReviews(withMovieId: movieId) { [weak self] result in
+        reviewUseCase.getReviews(withMovieId: movieId, page: page) { [weak self] result in
             switch result {
             case .success(let reviews):
-                self?.reviews = reviews
-                self?.view?.tableView.reloadData()
+                if self?.page == 1 {
+                    self?.reviews = reviews
+                } else {
+                    self?.reviews.append(contentsOf: reviews)
+                }
+
+                self?.view?.endRefreshing()
             case .failure(let error):
                 self?.errorMessage = error.localizedDescription
+                self?.view?.endRefreshing()
             }
         }
     }

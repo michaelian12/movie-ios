@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MovieUseCase: AnyObject {
-    func getMovies(withGenreId genreId: Int, completion: @escaping (Result<[MovieModel], Error>) -> Void)
+    func getMovies(withGenreId genreId: Int, page: Int, completion: @escaping (Result<[MovieModel], Error>) -> Void)
 }
 
 final class MovieInteractor {
@@ -29,8 +29,8 @@ final class MovieInteractor {
 
 extension MovieInteractor: MovieUseCase {
 
-    func getMovies(withGenreId genreId: Int, completion: @escaping (Result<[MovieModel], Error>) -> Void) {
-        repository.getMovies(withGenreId: genreId) { repositoryResult in
+    func getMovies(withGenreId genreId: Int, page: Int, completion: @escaping (Result<[MovieModel], Error>) -> Void) {
+        repository.getMovies(withGenreId: genreId, page: page) { repositoryResult in
             completion(repositoryResult)
         }
     }

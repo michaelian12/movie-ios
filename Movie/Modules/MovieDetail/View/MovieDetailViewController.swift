@@ -77,8 +77,7 @@ final class MovieDetailViewController: UIViewController {
     private func setupNavigation() {
         navigationItem.title = "Movie Detail"
         navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
 
     private func setupViews() {
@@ -92,7 +91,7 @@ final class MovieDetailViewController: UIViewController {
             posterImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
             posterImageView.heightAnchor.constraint(equalTo: posterImageView.widthAnchor, multiplier: 9/16),
             posterImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            posterImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            posterImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 16),

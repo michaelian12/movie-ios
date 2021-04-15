@@ -9,13 +9,15 @@ import Foundation
 import Alamofire
 
 protocol ReviewRemoteDataSourceProtocol: AnyObject {
-    func getReviews(withMovieId movieId: Int, result: @escaping (Result<[ReviewResponse], URLError>) -> Void)
+    func getReviews(withMovieId movieId: Int, page: Int, result: @escaping (Result<[ReviewResponse], URLError>) -> Void)
 }
 
 final class ReviewRemoteDataSource: RemoteDataSource, ReviewRemoteDataSourceProtocol {
 
-    func getReviews(withMovieId movieId: Int, result: @escaping (Result<[ReviewResponse], URLError>) -> Void) {
+    func getReviews(withMovieId movieId: Int, page: Int, result: @escaping (Result<[ReviewResponse], URLError>) -> Void) {
         guard let _url = URL(string: Endpoints.Gets.review(movieId: movieId).url) else { return }
+
+        parameters["page"] = page
 
         AF.request(_url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
             .validate()

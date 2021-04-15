@@ -10,6 +10,7 @@ import Foundation
 protocol MoviePresenterProtocol: AnyObject {
     var genre: GenreModel { get }
     var movies: [MovieModel] { get }
+    var page: Int { get set }
     func getMovies(withGenreId genreId: Int)
 }
 
@@ -21,6 +22,7 @@ final class MoviePresenter {
     private weak var view: MovieTableViewController?
     let genre: GenreModel
     var movies: [MovieModel] = []
+    var page: Int = 1
     var errorMessage: String = ""
 
     // MARK: - Initialisation
@@ -43,13 +45,19 @@ final class MoviePresenter {
 extension MoviePresenter: MoviePresenterProtocol {
 
     func getMovies(withGenreId genreId: Int) {
-        movieUseCase.getMovies(withGenreId: genreId) { [weak self] result in
+        movieUseCase.getMovies(withGenreId: genreId, page: page) { [weak self] result in
             switch result {
             case .success(let movies):
-                self?.movies = movies
-                self?.view?.tableView.reloadData()
+                if self?.page == 1 {
+                    self?.movies = movies
+                } else {
+                    self?.movies.append(contentsOf: movies)
+                }
+
+                self?.view?.endRefreshing()
             case .failure(let error):
                 self?.errorMessage = error.localizedDescription
+                self?.view?.endRefreshing()
             }
         }
     }

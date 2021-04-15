@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MJRefresh
 
 final class ReviewTableViewController: UITableViewController {
 
@@ -45,13 +46,38 @@ final class ReviewTableViewController: UITableViewController {
         tableView.backgroundColor = .systemBackground
         tableView.separatorStyle = .singleLine
         tableView.allowsSelection = false
+
+        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(headerRefresh))
+        header.lastUpdatedTimeLabel?.isHidden = true
+        tableView.mj_header = header
+
+        let footer = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: #selector(footerRefresh))
+        footer.setTitle("", for: .noMoreData)
+        tableView.mj_footer = footer
     }
 
     private func setupNavigation() {
         navigationItem.title = "Reviews"
         navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+
+    func endRefreshing() {
+        tableView.mj_header?.endRefreshing()
+        tableView.mj_footer?.endRefreshing()
+        tableView.reloadData()
+    }
+
+    // MARK: - Action Methods
+
+    @objc private func headerRefresh() {
+        presenter.page = 1
+        presenter.getReviews(withMovieId: presenter.movieId)
+    }
+
+    @objc private func footerRefresh() {
+        presenter.page += 1
+        presenter.getReviews(withMovieId: presenter.movieId)
     }
 
 }
