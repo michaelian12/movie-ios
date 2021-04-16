@@ -24,7 +24,6 @@
 		CA33E8602626DA9B004D32CE /* GenresResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA33E85F2626DA9B004D32CE /* GenresResponse.swift */; };
 		CAED08662627E6F200D7583A /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAED08652627E6F200D7583A /* Alamofire.xcframework */; };
 		CAED08672627E6F200D7583A /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAED08652627E6F200D7583A /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CAED08702627FA7400D7583A /* EnumResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED086F2627FA7400D7583A /* EnumResponse.swift */; };
 		CAED08722627FAED00D7583A /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08712627FAED00D7583A /* ErrorResponse.swift */; };
 		CAED087726282C8F00D7583A /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED087626282C8F00D7583A /* MovieTableViewController.swift */; };
 		CAED087D2628374400D7583A /* MoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED087C2628374400D7583A /* MoviePresenter.swift */; };
@@ -52,6 +51,7 @@
 		CAED08B026288B4100D7583A /* ReviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08AF26288B4100D7583A /* ReviewInteractor.swift */; };
 		CAED08B226289AC000D7583A /* MJRefresh.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAED08B126289AC000D7583A /* MJRefresh.xcframework */; };
 		CAED08B326289AC000D7583A /* MJRefresh.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAED08B126289AC000D7583A /* MJRefresh.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAED08B52629230F00D7583A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED08B42629230F00D7583A /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,7 +90,6 @@
 		CA33E85F2626DA9B004D32CE /* GenresResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresResponse.swift; sourceTree = "<group>"; };
 		CAED08652627E6F200D7583A /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 		CAED08692627E6F700D7583A /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = Carthage/Build/RxSwift.xcframework; sourceTree = "<group>"; };
-		CAED086F2627FA7400D7583A /* EnumResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumResponse.swift; sourceTree = "<group>"; };
 		CAED08712627FAED00D7583A /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		CAED087626282C8F00D7583A /* MovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewController.swift; sourceTree = "<group>"; };
 		CAED087C2628374400D7583A /* MoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePresenter.swift; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		CAED08AD26288A5A00D7583A /* ReviewRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRepository.swift; sourceTree = "<group>"; };
 		CAED08AF26288B4100D7583A /* ReviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewInteractor.swift; sourceTree = "<group>"; };
 		CAED08B126289AC000D7583A /* MJRefresh.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MJRefresh.xcframework; path = Carthage/Build/MJRefresh.xcframework; sourceTree = "<group>"; };
+		CAED08B42629230F00D7583A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +204,7 @@
 			children = (
 				CA312C1D26272A2600688D44 /* CustomError.swift */,
 				CAED08A0262880B000D7583A /* UIView+Extension.swift */,
+				CAED08B42629230F00D7583A /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -318,7 +319,6 @@
 		CA33E85E2626DA8E004D32CE /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				CAED086F2627FA7400D7583A /* EnumResponse.swift */,
 				CAED08712627FAED00D7583A /* ErrorResponse.swift */,
 				CA33E85F2626DA9B004D32CE /* GenresResponse.swift */,
 				CAED0888262842DB00D7583A /* ListResponse.swift */,
@@ -506,7 +506,6 @@
 				CAED08722627FAED00D7583A /* ErrorResponse.swift in Sources */,
 				CAED08A32628814B00D7583A /* ReviewModel.swift in Sources */,
 				CA312C2426272F9300688D44 /* GenreMapper.swift in Sources */,
-				CAED08702627FA7400D7583A /* EnumResponse.swift in Sources */,
 				CA070F112625B79900ACD67B /* GenreTableViewController.swift in Sources */,
 				CAED0889262842DB00D7583A /* ListResponse.swift in Sources */,
 				CAED08AC262889C700D7583A /* ReviewMapper.swift in Sources */,
@@ -520,6 +519,7 @@
 				CAED08AA2628884E00D7583A /* ReviewRemoteDataSource.swift in Sources */,
 				CAED0898262879BA00D7583A /* MovieDetailPresenter.swift in Sources */,
 				CAED08A1262880B000D7583A /* UIView+Extension.swift in Sources */,
+				CAED08B52629230F00D7583A /* UIViewController+Extension.swift in Sources */,
 				CA33E8092625D961004D32CE /* GenreModel.swift in Sources */,
 				CA33E8482626BFE3004D32CE /* APICall.swift in Sources */,
 				CA312C1E26272A2600688D44 /* CustomError.swift in Sources */,

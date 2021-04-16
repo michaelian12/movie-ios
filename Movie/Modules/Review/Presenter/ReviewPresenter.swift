@@ -23,7 +23,6 @@ final class ReviewPresenter {
     let movieId: Int
     var reviews: [ReviewModel] = []
     var page: Int = 1
-    var errorMessage: String = ""
 
     // MARK: - Initialisation
 
@@ -54,8 +53,9 @@ extension ReviewPresenter: ReviewPresenterProtocol {
 
                 self?.view?.endRefreshing()
             case .failure(let error):
-                self?.errorMessage = error.localizedDescription
                 self?.view?.endRefreshing()
+                let _errorMessage = error.localizedDescription
+                self?.view?.showToast(message: _errorMessage)
             }
         }
     }

@@ -21,14 +21,12 @@ final class ReviewRemoteDataSource: RemoteDataSource, ReviewRemoteDataSourceProt
 
         AF.request(_url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
             .validate()
-            .responseDecodable(of: EnumResponse.self) { dataResponse in
+            .responseDecodable(of: ListResponse<ReviewResponse>.self) { dataResponse in
                 switch dataResponse.result {
-                case .success(let enumResponse):
-                    switch enumResponse {
-                    case .reviewListResponse:
-                        guard let _reviews = (enumResponse.get() as? [ReviewResponse]) else { return }
+                case .success(let reviewListResponse):
+                    if let _reviews = reviewListResponse.results {
                         result(.success(_reviews))
-                    default:
+                    } else {
                         result(.failure(.invalidResponse))
                     }
                 case .failure:

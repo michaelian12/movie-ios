@@ -8,7 +8,7 @@
 import Foundation
 
 struct GenresResponse: Decodable {
-    let genres: [GenreResponse]
+    let genres: [GenreResponse]?
 }
 
 struct GenreResponse: Decodable {

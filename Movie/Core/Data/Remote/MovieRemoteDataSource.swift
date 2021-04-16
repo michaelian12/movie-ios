@@ -22,14 +22,12 @@ final class MovieRemoteDataSource: RemoteDataSource, MovieRemoteDataSourceProtoc
 
         AF.request(_url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
             .validate()
-            .responseDecodable(of: EnumResponse.self) { dataResponse in
+            .responseDecodable(of: ListResponse<MovieResponse>.self) { dataResponse in
                 switch dataResponse.result {
-                case .success(let enumResponse):
-                    switch enumResponse {
-                    case .movieListResponse:
-                        guard let _movies = (enumResponse.get() as? [MovieResponse]) else { return }
+                case .success(let movieListResponse):
+                    if let _movies = movieListResponse.results {
                         result(.success(_movies))
-                    default:
+                    } else {
                         result(.failure(.invalidResponse))
                     }
                 case .failure:

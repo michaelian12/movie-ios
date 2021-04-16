@@ -19,7 +19,6 @@ final class GenrePresenter {
     private let genreUseCase: GenreUseCase
     private weak var view: GenreTableViewController?
     var genres: [GenreModel] = []
-    var errorMessage: String = ""
 
     // MARK: - Initialisation
 
@@ -46,7 +45,8 @@ extension GenrePresenter: GenrePresenterProtocol {
                 self?.genres = genres
                 self?.view?.tableView.reloadData()
             case .failure(let error):
-                self?.errorMessage = error.localizedDescription
+                let _errorMessage = error.localizedDescription
+                self?.view?.showToast(message: _errorMessage)
             }
         }
     }

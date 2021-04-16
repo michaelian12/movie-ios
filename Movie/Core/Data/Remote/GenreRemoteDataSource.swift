@@ -19,14 +19,12 @@ final class GenreRemoteDataSource: RemoteDataSource, GenreRemoteDataSourceProtoc
 
         AF.request(_url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
             .validate()
-            .responseDecodable(of: EnumResponse.self) { dataResponse in
+            .responseDecodable(of: GenresResponse.self) { dataResponse in
                 switch dataResponse.result {
-                case .success(let enumResponse):
-                    switch enumResponse {
-                    case .genresResponse:
-                        guard let _genres = (enumResponse.get() as? GenresResponse)?.genres else { return }
+                case .success(let genresResponse):
+                    if let _genres = genresResponse.genres {
                         result(.success(_genres))
-                    default:
+                    } else {
                         result(.failure(.invalidResponse))
                     }
                 case .failure:
