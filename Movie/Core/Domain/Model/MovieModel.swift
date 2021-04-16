@@ -11,5 +11,5 @@ struct MovieModel {
     let id: Int
     let title: String
     let overview: String
-    let backdropPath: String
+    let posterPath: String
 }

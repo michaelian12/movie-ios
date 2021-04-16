@@ -12,37 +12,49 @@ final class Injection {
     // MARK: - Genre
 
     private func provideGenreRepository() -> GenreRepositoryProtocol {
-        let remote = GenreRemoteDataSource()
-        return GenreRepository(remoteDataSource: remote)
+        let _remote = GenreRemoteDataSource()
+        return GenreRepository(remoteDataSource: _remote)
     }
 
     func provideGenre() -> GenreUseCase {
-        let repository = provideGenreRepository()
-        return GenreInteractor(repository: repository)
+        let _repository = provideGenreRepository()
+        return GenreInteractor(repository: _repository)
     }
 
     // MARK: - Movie
 
     private func provideMovieRepository() -> MovieRepositoryProtocol {
-        let remote = MovieRemoteDataSource()
-        return MovieRepository(remoteDataSource: remote)
+        let _remote = MovieRemoteDataSource()
+        return MovieRepository(remoteDataSource: _remote)
     }
 
     func provideMovie() -> MovieUseCase {
-        let repository = provideMovieRepository()
-        return MovieInteractor(repository: repository)
+        let _repository = provideMovieRepository()
+        return MovieInteractor(repository: _repository)
+    }
+
+    // MARK: - MovieDetail
+
+    private func provideMovieDetailRepository() -> MovieDetailRepositoryProtocol {
+        let _remote = MovieDetailRemoteDataSource()
+        return MovieDetailRepository(remoteDataSource: _remote)
+    }
+
+    func provideMovieDetail() -> MovieDetailUseCase {
+        let _repository = provideMovieDetailRepository()
+        return MovieDetailInteractor(repository: _repository)
     }
 
     // MARK: - Review
 
     private func provideReviewRepository() -> ReviewRepositoryProtocol {
-        let remote = ReviewRemoteDataSource()
-        return ReviewRepository(remoteDataSource: remote)
+        let _remote = ReviewRemoteDataSource()
+        return ReviewRepository(remoteDataSource: _remote)
     }
 
     func provideReview() -> ReviewUseCase {
-        let repository = provideReviewRepository()
-        return ReviewInteractor(repository: repository)
+        let _repository = provideReviewRepository()
+        return ReviewInteractor(repository: _repository)
     }
 
 }

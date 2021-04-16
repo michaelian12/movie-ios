@@ -104,8 +104,10 @@ extension MovieTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let _movie = presenter.movies[indexPath.row]
-        let _movieDetailPresenter = MovieDetailPresenter(movie: _movie)
+        let _movieDetailUseCase = Injection.init().provideMovieDetail()
+        let _movieDetailPresenter = MovieDetailPresenter(movie: _movie, useCase: _movieDetailUseCase)
         let _movieDetailViewController = MovieDetailViewController(presenter: _movieDetailPresenter)
+        _movieDetailPresenter.setView(_movieDetailViewController)
         navigationController?.pushViewController(_movieDetailViewController, animated: true)
     }
 

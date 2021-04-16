@@ -72,6 +72,7 @@ final class MovieDetailViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setMovieDetail()
+        presenter.getTrailerVideo(withMovieId: presenter.movie.id)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -101,7 +102,7 @@ final class MovieDetailViewController: UIViewController {
             youTubePlayerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             youTubePlayerView.heightAnchor.constraint(equalTo: youTubePlayerView.widthAnchor, multiplier: 9/16),
             posterImageView.widthAnchor.constraint(equalToConstant: 100),
-            posterImageView.heightAnchor.constraint(equalTo: posterImageView.widthAnchor, multiplier: 16/9),
+            posterImageView.heightAnchor.constraint(equalTo: posterImageView.widthAnchor, multiplier: 3/2),
             posterImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             posterImageView.topAnchor.constraint(equalTo: youTubePlayerView.bottomAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
@@ -116,13 +117,13 @@ final class MovieDetailViewController: UIViewController {
         ])
     }
 
-    private func setMovieDetail() {
-        youTubePlayerView.load(withVideoId: "")
+    func setMovieDetail() {
         let _movie = presenter.movie
-        let _posterURL = URL(string: "\(API.imageUrl)/w780\(_movie.backdropPath)")
+        let _posterURL = URL(string: "\(API.imageUrl)/w780\(_movie.posterPath)")
         posterImageView.sd_setImage(with: _posterURL)
         titleLabel.text = _movie.title
         overviewLabel.text = _movie.overview
+        youTubePlayerView.load(withVideoId: presenter.youTubeId)
     }
 
     // MARK: - Action Methods
