@@ -7,10 +7,17 @@
 
 import UIKit
 import SDWebImage
+import youtube_ios_player_helper
 
 final class MovieDetailViewController: UIViewController {
 
     // MARK: - UI Properties
+
+    private lazy var youTubePlayerView: YTPlayerView = {
+        let playerView = YTPlayerView()
+        playerView.translatesAutoresizingMaskIntoConstraints = false
+        return playerView
+    }()
 
     private lazy var posterImageView: UIImageView = {
         let imageView = UIImageView()
@@ -82,16 +89,21 @@ final class MovieDetailViewController: UIViewController {
 
     private func setupViews() {
         view.backgroundColor = .systemBackground
+        view.addSubview(youTubePlayerView)
         view.addSubview(posterImageView)
         view.addSubview(titleLabel)
         view.addSubview(overviewLabel)
         view.addSubview(seeReviewsButton)
 
         NSLayoutConstraint.activate([
-            posterImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            posterImageView.heightAnchor.constraint(equalTo: posterImageView.widthAnchor, multiplier: 9/16),
+            youTubePlayerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            youTubePlayerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            youTubePlayerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            youTubePlayerView.heightAnchor.constraint(equalTo: youTubePlayerView.widthAnchor, multiplier: 9/16),
+            posterImageView.widthAnchor.constraint(equalToConstant: 100),
+            posterImageView.heightAnchor.constraint(equalTo: posterImageView.widthAnchor, multiplier: 16/9),
             posterImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            posterImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            posterImageView.topAnchor.constraint(equalTo: youTubePlayerView.bottomAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 16),
@@ -105,6 +117,7 @@ final class MovieDetailViewController: UIViewController {
     }
 
     private func setMovieDetail() {
+        youTubePlayerView.load(withVideoId: "")
         let _movie = presenter.movie
         let _posterURL = URL(string: "\(API.imageUrl)/w780\(_movie.backdropPath)")
         posterImageView.sd_setImage(with: _posterURL)
