@@ -45,19 +45,25 @@ extension MoviePresenter: MoviePresenterProtocol {
 
     func getMovies(withGenreId genreId: Int) {
         movieUseCase.getMovies(withGenreId: genreId, page: page) { [weak self] result in
+            guard let self = self else { return }
+
             switch result {
             case .success(let movies):
-                if self?.page == 1 {
-                    self?.movies = movies
+                if movies.isEmpty {
+                    if self.page > 1 { self.page -= 1 }
                 } else {
-                    self?.movies.append(contentsOf: movies)
+                    if self.page == 1 {
+                        self.movies = movies
+                    } else {
+                        self.movies.append(contentsOf: movies)
+                    }
                 }
 
-                self?.view?.endRefreshing()
+                self.view?.endRefreshing()
             case .failure(let error):
-                self?.view?.endRefreshing()
+                self.view?.endRefreshing()
                 let _errorMessage = error.localizedDescription
-                self?.view?.showToast(message: _errorMessage)
+                self.view?.showToast(message: _errorMessage)
             }
         }
     }

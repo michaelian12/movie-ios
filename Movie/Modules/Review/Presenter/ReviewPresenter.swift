@@ -43,19 +43,25 @@ extension ReviewPresenter: ReviewPresenterProtocol {
 
     func getReviews(withMovieId movieId: Int) {
         reviewUseCase.getReviews(withMovieId: movieId, page: page) { [weak self] result in
+            guard let self = self else { return }
+
             switch result {
             case .success(let reviews):
-                if self?.page == 1 {
-                    self?.reviews = reviews
+                if reviews.isEmpty {
+                    if self.page > 1 { self.page -= 1 }
                 } else {
-                    self?.reviews.append(contentsOf: reviews)
+                    if self.page == 1 {
+                        self.reviews = reviews
+                    } else {
+                        self.reviews.append(contentsOf: reviews)
+                    }
                 }
 
-                self?.view?.endRefreshing()
+                self.view?.endRefreshing()
             case .failure(let error):
-                self?.view?.endRefreshing()
+                self.view?.endRefreshing()
                 let _errorMessage = error.localizedDescription
-                self?.view?.showToast(message: _errorMessage)
+                self.view?.showToast(message: _errorMessage)
             }
         }
     }
