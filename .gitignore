@@ -1,9 +1,6 @@
 ## Mac OS
 .DS_Store
 
-## Xcode workspace
-*.xcworkspace
-
 ## Build generated
 build/
 DerivedData/
